@@ -6,7 +6,6 @@ import os
 import tensorflow as tf
 import numpy as np
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-
 if tf.test.gpu_device_name():
     print('GPU found')
 else:
@@ -67,8 +66,8 @@ from keras.optimizers import Adam
 from keras.models import *
 from keras.layers import *
 
-import tensorflow as tf
-import numpy as np
+# import tensorflow as tf
+# import numpy as np
 from keras import backend as K
 
 embed_size = 60
@@ -354,12 +353,12 @@ model.save('CNN1D-Transformers.h5')
 import matplotlib.pyplot as plt
 
 def plot_progress(history_dict):
+
     for key in list(history_dict.keys())[:4]:
         plt.clf()  # Clears the figure
         training_values = history_dict[key]
         val_values = history_dict['val_' + key]
-        epochs = range(1, len(training_values) + 1)
-
+        epochs = range(0, len(training_values) + 1)
         plt.plot(epochs, training_values, 'bo', label='Training ' + key)
 
         plt.plot(epochs, val_values, 'b', label='Validation ' + key)
